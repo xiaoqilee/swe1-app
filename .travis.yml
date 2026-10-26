@@ -15,3 +15,6 @@ script:
   - flake8 .
   - coverage run --source=mysite,polls manage.py test
   - coverage report -m
+
+after_success:
+  - coveralls
