@@ -18,3 +18,15 @@ script:
 
 after_success:
   - coveralls
+
+deploy:
+  provider: elasticbeanstalk
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
+  region: us-east-2
+  app: swe1-app
+  env: swe1-app-env
+  bucket: elasticbeanstalk-us-east-2-961394077833
+  edge: true
+  on:
+    branch: main
